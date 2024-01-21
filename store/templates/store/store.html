@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Store</title>
-</head>
-<body>
-    <header>
-        Store
-    </header>
-</body>
-</html>
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<h3>Store</h3>
+
+<img src="{% static 'images/cart.png' %}" alt="Cart" />
+{% endblock content %}
