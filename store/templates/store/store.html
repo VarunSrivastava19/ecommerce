@@ -1,58 +1,24 @@
 {% extends 'store/main.html' %} {% load static %} {% block content %}
 <div class="row py-4">
+  {% for product in products %}
   <div class="col-lg-4">
-    <div class="card box-element product">
+    <div class="card box-element product my-2">
       <img
-        src="{% static 'images/plchld.svg' %}"
+        src="{{product.imageURL}}"
         class="card-img-top"
         alt="placeholder"
       />
       <div class="card-body">
-        <h5 class="card-title">Product</h5>
+        <h5 class="card-title">{{product.name}}</h5>
 
         <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
         <a class="btn btn-outline-success" href="#">View</a>
         <h4 style="display: inline-block; float: right">
-          <strong>$20</strong>
+          <strong>&#x20B9;{{product.price|floatformat:2}}</strong>
         </h4>
       </div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <div class="card box-element product">
-      <img
-        src="{% static 'images/plchld.svg' %}"
-        class="card-img-top"
-        alt="placeholder"
-      />
-      <div class="card-body">
-        <h5 class="card-title">Product</h5>
-
-        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-        <a class="btn btn-outline-success" href="#">View</a>
-        <h4 style="display: inline-block; float: right">
-          <strong>$20</strong>
-        </h4>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4">
-    <div class="card box-element product">
-      <img
-        src="{% static 'images/plchld.svg' %}"
-        class="card-img-top"
-        alt="placeholder"
-      />
-      <div class="card-body">
-        <h5 class="card-title">Product</h5>
-
-        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
-        <a class="btn btn-outline-success" href="#">View</a>
-        <h4 style="display: inline-block; float: right">
-          <strong>$20</strong>
-        </h4>
-      </div>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock content %}

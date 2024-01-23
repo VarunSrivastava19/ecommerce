@@ -16,6 +16,15 @@ class Product(models.Model):
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)
     description = models.CharField(max_length=200, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
     def __str__(self):
         return self.name
@@ -27,6 +36,18 @@ class Order(models.Model):
     complete = models.BooleanField(default=False, null=True, blank=False)
     transaction_id = models.CharField(max_length=200, null=True)
 
+    @property
+    def cart_total(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.total for item in orderitems])
+        return total
+
+    @property
+    def cart_quantity(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.quantity for item in orderitems])
+        return total
+
     def __str__(self):
         return str(self.id)
 
@@ -36,6 +57,11 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def total(self):
+        total_price = self.quantity * self.product.price
+        return total_price
 
     def __str__(self):
         return str(self.id)
