@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import *
+
 from .models import *
+from .serializers import *
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
@@ -15,7 +16,7 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 
 class OrderViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
 
@@ -30,7 +31,8 @@ class ShippingAddressViewSet(viewsets.ModelViewSet):
 
 
 def store(request):
-    context = {}
+    products = Product.objects.all()
+    context = {'products': products}
     return render(request, 'store/store.html', context)
 
 
