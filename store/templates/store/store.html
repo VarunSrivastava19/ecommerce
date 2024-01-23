@@ -1,7 +1,58 @@
-{% extends 'store/main.html' %}
-{% load static %}
-{% block content %}
-<h3>Store</h3>
+{% extends 'store/main.html' %} {% load static %} {% block content %}
+<div class="row py-4">
+  <div class="col-lg-4">
+    <div class="card box-element product">
+      <img
+        src="{% static 'images/plchld.svg' %}"
+        class="card-img-top"
+        alt="placeholder"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Product</h5>
 
-<img src="{% static 'images/cart.png' %}" alt="Cart" />
+        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+        <a class="btn btn-outline-success" href="#">View</a>
+        <h4 style="display: inline-block; float: right">
+          <strong>$20</strong>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card box-element product">
+      <img
+        src="{% static 'images/plchld.svg' %}"
+        class="card-img-top"
+        alt="placeholder"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Product</h5>
+
+        <button class="btn btn-outline-success add-btn">Add to Cart</button>
+        <a class="btn btn-outline-success" href="#">View</a>
+        <h4 style="display: inline-block; float: right">
+          <strong>$20</strong>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card box-element product">
+      <img
+        src="{% static 'images/plchld.svg' %}"
+        class="card-img-top"
+        alt="placeholder"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Product</h5>
+
+        <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+        <a class="btn btn-outline-success" href="#">View</a>
+        <h4 style="display: inline-block; float: right">
+          <strong>$20</strong>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}
