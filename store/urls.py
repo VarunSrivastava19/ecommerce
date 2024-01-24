@@ -1,5 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+
 from . import views
 
 router = DefaultRouter()
@@ -13,5 +14,6 @@ urlpatterns = [
     path('', views.store, name="store"),
     path('cart/', views.cart, name="cart"),
     path('checkout/', views.checkout, name="checkout"),
-    path('api/', include(router.urls))
+    path('update_item/', views.update_item, name="update_item"),
+    path('api/', include(router.urls)),
 ]

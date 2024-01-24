@@ -95,7 +95,7 @@
       </div>
       {% endfor %}
       <h5>Items: {{order.cart_quantity}}</h5>
-      <h5>Total: &#x20B9;{{order.cart_total}}</h5>
+      <h5>Total: &#x20B9;{{order.cart_total|floatformat:2}}</h5>
     </div>
   </div>
 </div>
