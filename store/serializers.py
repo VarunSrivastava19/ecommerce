@@ -10,9 +10,10 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(max_length=None, use_url=True)
     class Meta:
         model = Product
-        fields = ('id', 'name', 'price', 'digital', 'description')
+        fields = ('id', 'name', 'price', 'digital', 'description', 'image')
 
 
 class OrderSerializer(serializers.ModelSerializer):

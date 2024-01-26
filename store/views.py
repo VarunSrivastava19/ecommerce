@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
 import json
 from .serializers import *
 
@@ -8,26 +9,37 @@ from .serializers import *
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+    class Meta:
+        ordering = ['id']
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    parser_classes = (MultiPartParser, FormParser)
+    class Meta:
+        ordering = ['id']
 
 
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    class Meta:
+        ordering = ['id']
 
 
 class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
+    class Meta:
+        ordering = ['id']
 
 
 class ShippingAddressViewSet(viewsets.ModelViewSet):
     queryset = ShippingAddress.objects.all()
     serializer_class = ShippingAddressSerializer
+    class Meta:
+        ordering = ['id']
 
 
 def store(request):
